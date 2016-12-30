@@ -1,0 +1,76 @@
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="numeric-1.2.6.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="nouislider.min.css"/>
+  <link type="text/css" rel="stylesheet" href="base.css"/>
+  <script src="nouislider.min.js"/></script>
+</head>
+<body>
+
+  <!-- Bootstrap Header/Title Row -->
+  <div class="row">
+    <div class="col-md-12">
+      <h1>What is a Fourier Transform?</h1>
+    </div>
+  </div>
+
+  <!-- Signal #1 Settings -->
+  <div class="row">
+    <div class="col-md-2">
+        <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Set Signal
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Add signal</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row"> <!-- Title row-->
+                <p>Select frequency and amplitude for the new signal</p>
+              </div> <!-- end Title row -->
+
+              <div class="row"> <!-- Frequency slider row-->
+                <div id=f1-value><h3>Frequency</h3></div>
+                <div class="sliderclass">
+                  <div id=sliderf1></div>
+                </div>
+              </div> <!-- end Frequency slider row -->
+
+              <div class="row"> <!-- Amplitude slider row-->
+                <div id=a1-value><h3>Amplitude</h3></div>
+                <div class="sliderclass">
+                  <div id=slidera1></div>
+                </div>
+              </div> <!-- end Amplitude slider row -->
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                <!-- <button type="button" class="btn btn-primary btn-success">OK</button> -->
+              </div>
+            </div> <!--Modal body-->
+          </div>  <!-- Modal content-->
+        </div> <!-- Modal dialog -->
+      </div> <!-- Modal fade -->
+    </div> <!-- main page col-md-2-->
+    <div class="col-md-10"></div> <!-- main page col-md-10)-->
+
+  </div> <!-- Signal #1 settings -->
+
+
+
+  <!-- Graph row -->
+  <div class="row">
+    <div id="graph">
+      <script src="test2.js"></script>
+    </div>
+  </div>
+</body>

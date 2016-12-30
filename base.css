@@ -1,0 +1,10 @@
+.sliderclass {
+  position: relative;
+  padding: 20px 60px 50px 30px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+h3 {
+  text-align: center;
+}
