@@ -68,18 +68,23 @@ noUiSlider.create(f1slider, {
   }
 });
 
+//Signal buttons
+var s1button = document.getElementById('sig1');
+var s2button = document.getElementById('sig2');
+
 // read f1 slider
 var f1val = document.getElementById('f1-value');
-//
 f1slider.noUiSlider.on('update', function( values, handle ) {
 	f1 = values[handle];
   f1val["innerHTML"] = "<h3>Frequency: "+f1+" Hz</h3>"
   var y1 = sig_gen(f1,a1,x1,y1);
   var sumsig = numeric.add(y1,y2);
-  Plotly.restyle(graphDiv, {
-    x: x1,
-    y: sumsig,
-  });
+  Plotly.deleteTraces(graphDiv, 0);
+  makeplot(x1,sumsig)
+  // Plotly.restyle(graphDiv, {
+  //   x: x1,
+  //   y: sumsig,
+  // });
 });
 
 // create a1 slider
@@ -99,7 +104,6 @@ noUiSlider.create(a1slider, {
 
 // read a1 slider
 var a1val = document.getElementById('a1-value');
-//
 a1slider.noUiSlider.on('update', function( values, handle ) {
 	a1val.value = values[handle];
   a1val["innerHTML"] = "<h3>Amplitude: "+a1val.value+" units</h3>"

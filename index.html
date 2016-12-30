@@ -1,6 +1,6 @@
 <head>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src="numeric-1.2.6.min.js"></script>
@@ -19,53 +19,88 @@
 
   <!-- Signal #1 Settings -->
   <div class="row">
-    <div class="col-md-2">
-        <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-        Set Signal
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Add signal</h4>
-            </div>
-            <div class="modal-body">
-              <div class="row"> <!-- Title row-->
-                <p>Select frequency and amplitude for the new signal</p>
-              </div> <!-- end Title row -->
-
-              <div class="row"> <!-- Frequency slider row-->
-                <div id=f1-value><h3>Frequency</h3></div>
-                <div class="sliderclass">
-                  <div id=sliderf1></div>
-                </div>
-              </div> <!-- end Frequency slider row -->
-
-              <div class="row"> <!-- Amplitude slider row-->
-                <div id=a1-value><h3>Amplitude</h3></div>
-                <div class="sliderclass">
-                  <div id=slidera1></div>
-                </div>
-              </div> <!-- end Amplitude slider row -->
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                <!-- <button type="button" class="btn btn-primary btn-success">OK</button> -->
-              </div>
-            </div> <!--Modal body-->
-          </div>  <!-- Modal content-->
-        </div> <!-- Modal dialog -->
-      </div> <!-- Modal fade -->
-    </div> <!-- main page col-md-2-->
-    <div class="col-md-10"></div> <!-- main page col-md-10)-->
+    <button id=sig1 type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
+      Signal #1
+    </button>
+    <button id=sig2 type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+      Signal #2
+    </button>
 
   </div> <!-- Signal #1 settings -->
 
 
+<!-- Modals -->
+
+  <!-- Modal 1 -->
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add signal</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row"> <!-- Title row-->
+            <p>Select frequency and amplitude for the new signal</p>
+          </div> <!-- end Title row -->
+
+          <div class="row"> <!-- Frequency slider row-->
+            <div id=f1-value><h3>Frequency</h3></div>
+            <div class="sliderclass">
+              <div id=sliderf1></div>
+            </div>
+          </div> <!-- end Frequency slider row -->
+
+          <div class="row"> <!-- Amplitude slider row-->
+            <div id=a1-value><h3>Amplitude</h3></div>
+            <div class="sliderclass">
+              <div id=slidera1></div>
+            </div>
+          </div> <!-- end Amplitude slider row -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            <!-- <button type="button" class="btn btn-primary btn-success">OK</button> -->
+          </div>
+        </div> <!--Modal body-->
+      </div>  <!-- Modal content-->
+    </div> <!-- Modal dialog -->
+  </div> <!-- Modal fade -->
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add signal</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row"> <!-- Title row-->
+            <p>Select frequency and amplitude for the new signal</p>
+          </div> <!-- end Title row -->
+
+          <div class="row"> <!-- Frequency slider row-->
+            <div id=f2-value><h3>Frequency</h3></div>
+            <div class="sliderclass">
+              <div id=sliderf2></div>
+            </div>
+          </div> <!-- end Frequency slider row -->
+
+          <div class="row"> <!-- Amplitude slider row-->
+            <div id=a2-value><h3>Amplitude</h3></div>
+            <div class="sliderclass">
+              <div id=slidera2></div>
+            </div>
+          </div> <!-- end Amplitude slider row -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+          </div>
+        </div> <!--Modal body-->
+      </div>  <!-- Modal content-->
+    </div> <!-- Modal dialog -->
+  </div> <!-- Modal fade -->
 
   <!-- Graph row -->
   <div class="row">
@@ -73,4 +108,5 @@
       <script src="test2.js"></script>
     </div>
   </div>
+
 </body>
