@@ -87,7 +87,7 @@ function makeplot(x,y) {
       l: 50,
       r: 50,
       b: 10,
-      t: 100,
+      t: 50,
       pad: 4
     }
   };
@@ -126,7 +126,7 @@ function makeplot2(x,y) {
       l: 50,
       r: 50,
       b: 10,
-      t: 100,
+      t: 50,
       pad: 4
     }
   };
