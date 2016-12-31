@@ -1,5 +1,10 @@
 var graphDiv = document.getElementById('graph');
-var graphDiv2 = document.getElementById('graph2')
+var graphDiv2 = document.getElementById('graph2');
+
+//Signal buttons
+var s1button = document.getElementById('sig1');
+var s2button = document.getElementById('sig2');
+
 //var N = 1000;
 var color1 = '#7b3294';
 var colorX = '#ffa7b5';
@@ -88,6 +93,7 @@ function makeplot(x,y) {
   };
   var fig = {data: [trace], layout: layout};
   Plotly.plot(graphDiv, fig);
+  s1button["innerHTML"] = "Signal #1<br>Freq = " + f1 + "<br>Amp = " + a1;
 }
 makeplot(x1,sumsig);
 
@@ -126,13 +132,9 @@ function makeplot2(x,y) {
   };
   var fig = {data: [trace], layout: layout};
   Plotly.plot(graphDiv2, fig);
+  s2button["innerHTML"] = "Signal #2<br>Freq = " + f2 + "<br>Amp = " + a2;
 }
 makeplot2(fvec,sumsig2);
-
-
-//Signal buttons
-var s1button = document.getElementById('sig1');
-var s2button = document.getElementById('sig2');
 
 // SLIDERS
 // F1 SLIDER
