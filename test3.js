@@ -8,8 +8,8 @@ var colorY = '#fdae61';
 // Define initial signal variables
 var f1 = 1;
 var a1 = 1;
-var f2 = 1;
-var a2 = 1;
+var f2 = 5;
+var a2 = 0;
 
 N = 300
 var x1 = numeric.linspace(0,10,N);
@@ -56,7 +56,7 @@ var sumsig2 = numeric.add(yf1,yf2);
 
 // Make Time Series Plot
 function makeplot(x,y) {
-  Plotly.plot(graphDiv, [{
+  var trace = {
     type: 'scatter',
     mode: 'line',
     x: x,
@@ -65,33 +65,36 @@ function makeplot(x,y) {
     yaxis: 'y',
     name: 'Time series',
     marker: {color: color1, size: 10}
-  }], {
+  };
+  var layout = {
     title: 'Time Series Signal',
     xaxis: {
       zeroline: false,
       title: 'Time (s)'
     },
     yaxis: {
-      domain: [0.5, 1],
+      domain: [0.2, 1],
       title: 'Amplitude'
-    }
-    width: 500,
-    height: 300,
+    },
+    autosize: true,
+    height: 250,
     margin: {
       l: 50,
       r: 50,
-      b: 100,
+      b: 10,
       t: 100,
       pad: 4
     }
-  });
+  };
+  var fig = {data: [trace], layout: layout};
+  Plotly.plot(graphDiv, fig);
 }
 makeplot(x1,sumsig);
 
 
 // Make DFT Plot
 function makeplot2(x,y) {
-  Plotly.plot(graphDiv2, [{
+  var trace = {
     type: 'scatter',
     mode: 'line',
     x: x,
@@ -100,17 +103,29 @@ function makeplot2(x,y) {
     yaxis: 'y',
     name: 'DFT',
     marker: {color: color1, size: 10}
-  }], {
+  };
+  var layout = {
     title: 'Discrete Fourier Transform',
     xaxis: {
       zeroline: false,
       title: 'Frequency (Hz)'
     },
     yaxis: {
-      domain: [0, 1],
+      domain: [0.2, 1],
       title: 'Amplitude'
+    },
+    autosize: true,
+    height: 250,
+    margin: {
+      l: 50,
+      r: 50,
+      b: 10,
+      t: 100,
+      pad: 4
     }
-  });
+  };
+  var fig = {data: [trace], layout: layout};
+  Plotly.plot(graphDiv2, fig);
 }
 makeplot2(fvec,sumsig2);
 
@@ -123,7 +138,7 @@ var s2button = document.getElementById('sig2');
 // F1 SLIDER
 var f1slider = document.getElementById('sliderf1');
 noUiSlider.create(f1slider, {
-	start: [ 1 ],
+	start: [ f1 ],
 	range: {
 		'min': [  0 ],
 		'max': [ 10 ]
@@ -151,7 +166,7 @@ f1slider.noUiSlider.on('update', function( values, handle ) {
 // A1 SLIDER
 var a1slider = document.getElementById('slidera1');
 noUiSlider.create(a1slider, {
-	start: [ 1 ],
+	start: [ a1 ],
 	range: {
 		'min': [  0 ],
 		'max': [ 10 ]
@@ -179,7 +194,7 @@ a1slider.noUiSlider.on('update', function( values, handle ) {
 // F2 SLIDER
 var f2slider = document.getElementById('sliderf2');
 noUiSlider.create(f2slider, {
-	start: [ 1 ],
+	start: [ f2 ],
 	range: {
 		'min': [  0 ],
 		'max': [ 10 ]
@@ -207,7 +222,7 @@ f2slider.noUiSlider.on('update', function( values, handle ) {
 // A2 SLIDER
 var a2slider = document.getElementById('slidera2');
 noUiSlider.create(a2slider, {
-	start: [ 1 ],
+	start: [ a2 ],
 	range: {
 		'min': [  0 ],
 		'max': [ 10 ]
