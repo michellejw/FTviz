@@ -16,7 +16,7 @@ var a1 = 1;
 var f2 = 5;
 var a2 = 0;
 
-N = 300
+N = 500
 var x1 = numeric.linspace(0,10,N);
 var y1 = numeric.sin([x1])
 
@@ -54,7 +54,7 @@ function sig_gen2(freq,amp,fvec,halfwidth) {
   return out2;
 }
 var fvec = numeric.linspace(0,10,N);
-var halfwidth = 0.5;
+var halfwidth = 0.1;
 var yf1 = sig_gen2(f1,a1,fvec,halfwidth);
 var yf2 = sig_gen2(f2,a2,fvec,halfwidth);
 var sumsig2 = numeric.add(yf1,yf2);
