@@ -155,10 +155,10 @@ var f1val = document.getElementById('f1-value');
 f1slider.noUiSlider.on('update', function( values, handle ) {
 	f1 = values[handle];
   f1val["innerHTML"] = "<h3>Frequency: "+f1+" Hz</h3>"
-  var y1 = sig_gen(f1,a1,x1);
-  var sumsig = numeric.add(y1,y2);
-  var yf1 = sig_gen2(f1,a1,fvec,halfwidth);
-  var sumsig2 = numeric.add(yf1,yf2);
+  y1 = sig_gen(f1,a1,x1);
+  sumsig = numeric.add(y1,y2);
+  yf1 = sig_gen2(f1,a1,fvec,halfwidth);
+  sumsig2 = numeric.add(yf1,yf2);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2, 0);
   makeplot(x1,sumsig)
@@ -183,10 +183,10 @@ var a1val = document.getElementById('a1-value');
 a1slider.noUiSlider.on('update', function( values, handle ) {
   a1 = values[handle];
   a1val["innerHTML"] = "<h3>Amplitude: "+a1+" units</h3>"
-  var y1 = sig_gen(f1,a1,x1);
-  var sumsig = numeric.add(y1,y2);
-  var yf1 = sig_gen2(f1,a1,fvec,halfwidth);
-  var sumsig2 = numeric.add(yf1,yf2);
+  y1 = sig_gen(f1,a1,x1);
+  sumsig = numeric.add(y1,y2);
+  yf1 = sig_gen2(f1,a1,fvec,halfwidth);
+  sumsig2 = numeric.add(yf1,yf2);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2,0);
   makeplot(x1,sumsig)
@@ -211,10 +211,10 @@ var f2val = document.getElementById('f2-value');
 f2slider.noUiSlider.on('update', function( values, handle ) {
 	f2 = values[handle];
   f2val["innerHTML"] = "<h3>Frequency: "+f2+" Hz</h3>"
-  var y2 = sig_gen(f2,a2,x1);
-  var sumsig = numeric.add(y1,y2);
-  var yf2 = sig_gen2(f2,a2,fvec,halfwidth);
-  var sumsig2 = numeric.add(yf1,yf2);
+  y2 = sig_gen(f2,a2,x1);
+  sumsig = numeric.add(y1,y2);
+  yf2 = sig_gen2(f2,a2,fvec,halfwidth);
+  sumsig2 = numeric.add(yf1,yf2);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2, 0);
   makeplot(x1,sumsig)
@@ -239,10 +239,10 @@ var a2val = document.getElementById('a2-value');
 a2slider.noUiSlider.on('update', function( values, handle ) {
   a2 = values[handle];
   a2val["innerHTML"] = "<h3>Amplitude: "+a2+" units</h3>"
-  var y2 = sig_gen(f2,a2,x1);
-  var sumsig = numeric.add(y1,y2);
-  var yf2 = sig_gen2(f2,a2,fvec,halfwidth);
-  var sumsig2 = numeric.add(yf1,yf2);
+  y2 = sig_gen(f2,a2,x1);
+  sumsig = numeric.add(y1,y2);
+  yf2 = sig_gen2(f2,a2,fvec,halfwidth);
+  sumsig2 = numeric.add(yf1,yf2);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2, 0);
   makeplot(x1,sumsig)
