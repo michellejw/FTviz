@@ -16,7 +16,7 @@ var a1 = 1;
 var f2 = 5;
 var a2 = 0;
 
-N = 500
+N = 500;
 var x1 = numeric.linspace(0,10,N);
 var y1 = numeric.sin([x1])
 
