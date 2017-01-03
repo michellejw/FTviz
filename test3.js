@@ -4,8 +4,8 @@ var graphDiv2 = document.getElementById('graph2');
 //Signal buttons
 var s1button = document.getElementById('sig1');
 var s2button = document.getElementById('sig2');
+var s3button = document.getElementById('sig3');
 
-//var N = 1000;
 var color1 = '#7b3294';
 var colorX = '#ffa7b5';
 var colorY = '#fdae61';
@@ -15,8 +15,10 @@ var f1 = 1;
 var a1 = 1;
 var f2 = 5;
 var a2 = 0;
+var f3 = 5;
+var a3 = 0;
 
-N = 500;
+var N = 500;
 var x1 = numeric.linspace(0,10,N);
 var y1 = numeric.sin([x1])
 
@@ -30,7 +32,8 @@ function sig_gen(freq,amp,x) {
 }
 var y1 = sig_gen(f1,a1,x1);
 var y2 = sig_gen(f2,a2,x1);
-var sumsig = numeric.add(y1,y2);
+var y3 = sig_gen(f3,a3,x1);
+var sumsig = numeric.add(y1,y2,y3);
 
 // Generate DFT signal
 function sig_gen2(freq,amp,fvec,halfwidth) {
@@ -57,7 +60,8 @@ var fvec = numeric.linspace(0,10,N);
 var halfwidth = 0.1;
 var yf1 = sig_gen2(f1,a1,fvec,halfwidth);
 var yf2 = sig_gen2(f2,a2,fvec,halfwidth);
-var sumsig2 = numeric.add(yf1,yf2);
+var yf3 = sig_gen2(f3,a3,fvec,halfwidth);
+var sumsig2 = numeric.add(yf1,yf2,yf3);
 
 // Make Time Series Plot
 function makeplot(x,y) {
@@ -93,7 +97,9 @@ function makeplot(x,y) {
   };
   var fig = {data: [trace], layout: layout};
   Plotly.plot(graphDiv, fig);
+  s2button["innerHTML"] = "Signal #2<br>Freq = " + f2 + "<br>Amp = " + a2;
   s1button["innerHTML"] = "Signal #1<br>Freq = " + f1 + "<br>Amp = " + a1;
+  s3button["innerHTML"] = "Signal #3<br>Freq = " + f3 + "<br>Amp = " + a3;
 }
 makeplot(x1,sumsig);
 
@@ -133,6 +139,8 @@ function makeplot2(x,y) {
   var fig = {data: [trace], layout: layout};
   Plotly.plot(graphDiv2, fig);
   s2button["innerHTML"] = "Signal #2<br>Freq = " + f2 + "<br>Amp = " + a2;
+  s1button["innerHTML"] = "Signal #1<br>Freq = " + f1 + "<br>Amp = " + a1;
+  s3button["innerHTML"] = "Signal #3<br>Freq = " + f3 + "<br>Amp = " + a3;
 }
 makeplot2(fvec,sumsig2);
 
@@ -156,9 +164,9 @@ f1slider.noUiSlider.on('update', function( values, handle ) {
 	f1 = values[handle];
   f1val["innerHTML"] = "<h3>Frequency: "+f1+" Hz</h3>"
   y1 = sig_gen(f1,a1,x1);
-  sumsig = numeric.add(y1,y2);
+  sumsig = numeric.add(y1,y2,y3);
   yf1 = sig_gen2(f1,a1,fvec,halfwidth);
-  sumsig2 = numeric.add(yf1,yf2);
+  sumsig2 = numeric.add(yf1,yf2,yf3);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2, 0);
   makeplot(x1,sumsig)
@@ -184,9 +192,9 @@ a1slider.noUiSlider.on('update', function( values, handle ) {
   a1 = values[handle];
   a1val["innerHTML"] = "<h3>Amplitude: "+a1+" units</h3>"
   y1 = sig_gen(f1,a1,x1);
-  sumsig = numeric.add(y1,y2);
+  sumsig = numeric.add(y1,y2,y3);
   yf1 = sig_gen2(f1,a1,fvec,halfwidth);
-  sumsig2 = numeric.add(yf1,yf2);
+  sumsig2 = numeric.add(yf1,yf2,yf3);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2,0);
   makeplot(x1,sumsig)
@@ -212,9 +220,9 @@ f2slider.noUiSlider.on('update', function( values, handle ) {
 	f2 = values[handle];
   f2val["innerHTML"] = "<h3>Frequency: "+f2+" Hz</h3>"
   y2 = sig_gen(f2,a2,x1);
-  sumsig = numeric.add(y1,y2);
+  sumsig = numeric.add(y1,y2,y3);
   yf2 = sig_gen2(f2,a2,fvec,halfwidth);
-  sumsig2 = numeric.add(yf1,yf2);
+  sumsig2 = numeric.add(yf1,yf2,yf3);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2, 0);
   makeplot(x1,sumsig)
@@ -240,14 +248,68 @@ a2slider.noUiSlider.on('update', function( values, handle ) {
   a2 = values[handle];
   a2val["innerHTML"] = "<h3>Amplitude: "+a2+" units</h3>"
   y2 = sig_gen(f2,a2,x1);
-  sumsig = numeric.add(y1,y2);
+  sumsig = numeric.add(y1,y2,y3);
   yf2 = sig_gen2(f2,a2,fvec,halfwidth);
-  sumsig2 = numeric.add(yf1,yf2);
+  sumsig2 = numeric.add(yf1,yf2,yf3);
   Plotly.deleteTraces(graphDiv, 0);
   Plotly.deleteTraces(graphDiv2, 0);
   makeplot(x1,sumsig)
   makeplot2(fvec,sumsig2)
 });
 
-var freq_low_test = f1-halfwidth;
-var freq_high_test = f1+halfwidth;
+
+// F3 SLIDER
+var f3slider = document.getElementById('sliderf3');
+noUiSlider.create(f3slider, {
+	start: [ f3 ],
+	range: {
+		'min': [  0 ],
+		'max': [ 10 ]
+	},
+  pips: {
+  mode: 'range',
+  density: 10
+  }
+});
+// read f3 slider
+var f3val = document.getElementById('f3-value');
+f3slider.noUiSlider.on('update', function( values, handle ) {
+	f3 = values[handle];
+  f3val["innerHTML"] = "<h3>Frequency: "+f3+" Hz</h3>"
+  y3 = sig_gen(f3,a3,x1);
+  sumsig = numeric.add(y1,y2,y3);
+  yf3 = sig_gen2(f3,a3,fvec,halfwidth);
+  sumsig2 = numeric.add(yf1,yf2,yf3);
+  Plotly.deleteTraces(graphDiv, 0);
+  Plotly.deleteTraces(graphDiv2, 0);
+  makeplot(x1,sumsig)
+  makeplot2(fvec,sumsig2)
+});
+
+// A3 SLIDER
+var a3slider = document.getElementById('slidera3');
+noUiSlider.create(a3slider, {
+	start: [ a3 ],
+	range: {
+		'min': [  0 ],
+		'max': [ 10 ]
+	},
+  pips: {
+  mode: 'range',
+  density: 10
+  }
+});
+// read a3 slider
+var a3val = document.getElementById('a3-value');
+a3slider.noUiSlider.on('update', function( values, handle ) {
+  a3 = values[handle];
+  a3val["innerHTML"] = "<h3>Amplitude: "+a3+" units</h3>"
+  y3 = sig_gen(f3,a3,x1);
+  sumsig = numeric.add(y1,y2,y3);
+  yf3 = sig_gen2(f3,a3,fvec,halfwidth);
+  sumsig2 = numeric.add(yf1,yf2,yf3);
+  Plotly.deleteTraces(graphDiv, 0);
+  Plotly.deleteTraces(graphDiv2,0);
+  makeplot(x1,sumsig)
+  makeplot2(fvec,sumsig2)
+});

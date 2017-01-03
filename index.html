@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <!-- Signal #1 Settings -->
+  <!-- Signal Settings -->
   <div class="row">
     <button id=sig1 type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
       Signal #1
@@ -25,8 +25,10 @@
     <button id=sig2 type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
       Signal #2
     </button>
-
-  </div> <!-- Signal #1 settings -->
+    <button id=sig3 type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">
+      Signal #3
+    </button>
+  </div> <!-- Signal settings -->
 
 
 <!-- Modals -->
@@ -101,6 +103,42 @@
       </div>  <!-- Modal content-->
     </div> <!-- Modal dialog -->
   </div> <!-- Modal fade -->
+
+  <!-- Modal 3 -->
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Update Signal#3</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row"> <!-- Title row-->
+            <p>Select frequency and amplitude for the new signal</p>
+          </div> <!-- end Title row -->
+
+          <div class="row"> <!-- Frequency slider row-->
+            <div id=f3-value><h3>Frequency</h3></div>
+            <div class="sliderclass">
+              <div id=sliderf3></div>
+            </div>
+          </div> <!-- end Frequency slider row -->
+
+          <div class="row"> <!-- Amplitude slider row-->
+            <div id=a3-value><h3>Amplitude</h3></div>
+            <div class="sliderclass">
+              <div id=slidera3></div>
+            </div>
+          </div> <!-- end Amplitude slider row -->
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+          </div>
+        </div> <!--Modal body-->
+      </div>  <!-- Modal content-->
+    </div> <!-- Modal dialog -->
+  </div> <!-- Modal fade -->
+
 
   <!-- Time series graph row -->
   <div class="row">
